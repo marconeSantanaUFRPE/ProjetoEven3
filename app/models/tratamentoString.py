@@ -29,9 +29,18 @@ def tratamentoStringListaParticipantes(texto):
     return (retorno, tags)
 
 def tagsDoCracha(texto):
-
-    aux = texto.replace("{{","")
+    aux = texto.replace(" ", "")
+    aux = aux.replace("{{","")
     aux = aux.replace("}}","")
     lista = aux.split(",")
+
+    return lista
+
+
+def tirarMaiorMenor(string):
+
+    string = string.replace("<","" )
+    string = string.replace(">","" )
+    lista = string.split(",")
 
     return lista

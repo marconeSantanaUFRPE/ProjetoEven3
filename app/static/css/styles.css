@@ -114,7 +114,7 @@
 } 
 
 #controle0{ 
-	left:auto;
+	left: 130px; 
 	top: 1110px; 
 	position: absolute; 
 	width: 8778px;
@@ -125,7 +125,7 @@
 
 
 #controle1{ 
-	left:auto;
+	left: 130px; 
 	top: 1110px; 
 	position: absolute; 
 	width: 8778px;
@@ -133,10 +133,11 @@
 	z-index:3;
 	
 	
+	
 } 
 
 #controle2{
-	left:auto;
+	left: 130px; 
 	top: 1160px; 
 	position: absolute; 
 	width: 8778px;
@@ -146,7 +147,7 @@
 }
 
 #controle3{
-	left:auto;
+	left: 130px; 
 	top: 1210px; 
 	position: absolute; 
 	width: 8778px;
@@ -156,7 +157,7 @@
 }
 
 #controle4{
-	left:auto;
+	left: 130px; 
 	top: 1260px; 
 	position: absolute; 
 	width: 8778px;
@@ -166,7 +167,7 @@
 }
 
 #controle5{
-	left:auto;
+	left: 130px; 
 	top: 1310px; 
 	position: absolute; 
 	width: 8778px;

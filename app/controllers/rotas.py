@@ -1,19 +1,19 @@
-from app import app
-from flask import render_template , make_response ,request, redirect, url_for,flash
-from app.models.forms import formulario,formu
-from app.models.tratamentoString import tratamentoStringListaParticipantes,tagsDoCracha
+#Classe com as rotas da aplicação
+
 import os
+from flask import render_template , make_response ,request, redirect, url_for,flash
 from werkzeug.utils import secure_filename
+
+from app import app
+from app.models.forms import formulario,formu
+from app.models.tratamentoString import tratamentoStringListaParticipantes,tagsDoCracha,tirarMaiorMenor
 from app.controllers.pastas import criarPastaDataHora
 from app.controllers.tags import verificaTagsTextoPlanilha
 from app.controllers.criarCrachas import criarCrachasPastaZip
+from app.controllers.uploadImagens import carregarImagem
 
-UPLOAD_FOLDER = 'app\static'
-ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-APP_ROOT = os.path.dirname(os.path.abspath(__file__))
-BackGroudLogo = ""
-LOGO = ""
+BackGround = None
+LOGO = None
 
 @app.route("/" , methods = ["GET","POST"])
 def Max():
@@ -29,19 +29,22 @@ def Max():
         
         if form.validate_on_submit():
               
-                a = criarPastaDataHora()
-                stringCompac = a[0]
-                data_e_hora_em_texto = a[1]
+                stringDataHora_StringCompactar = criarPastaDataHora()
+                stringCompac = stringDataHora_StringCompactar[0]
+                dataHoraTexto = stringDataHora_StringCompactar[1]
 
                 listaDeIntegrantes = tratamentoStringListaParticipantes(form.texto.data)
                 tagsdaPlanilha = listaDeIntegrantes[1]
                 listaDados = listaDeIntegrantes[0]
 
-                tagsveri = verificaTagsTextoPlanilha(tags,tagsdaPlanilha)
-                if tagsveri == False:
+                tagVerificasdas = verificaTagsTextoPlanilha(tags,tagsdaPlanilha)
+                if tagVerificasdas == False:
                          return render_template("Erro.html")
+                global BackGround
+                if BackGround == None:
+                        return render_template('ErroSemBack.html')
 
-                criarCrachasPastaZip(listaDados,tags,tagsdaPlanilha,data_e_hora_em_texto,stringCompac)                    
+                criarCrachasPastaZip(listaDados,tags,tagsdaPlanilha,dataHoraTexto,stringCompac)                    
               
                 return redirect(url_for('static', filename='pastaCompac.zip'))
                 
@@ -51,73 +54,34 @@ def Max():
 @app.route('/pdf/<string>')
 def pdf_template2(string):
         
-        string = string.replace("<","" )
-        string = string.replace(">","" )
-        lista = string.split(",")
+        lista = tirarMaiorMenor(string)
         
-        a = BackGroudLogo
+        a = BackGround
         b = LOGO
-
-        if b == "":
+          
+        if b == None:
                 return render_template("crachaPadrao.html", lista = lista, a  = a)
         else:
                 return render_template("crachaComLogo.html", lista = lista, a  = a , b = b  )
         
-
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
 @app.route('/carregar', methods=['GET', 'POST'])
 def upload_file():
+        nomeDoArquivo = None
+        nomeDoArquivo = carregarImagem()
+        global BackGround 
+        BackGround = nomeDoArquivo
         
-    if request.method == 'POST':
-        # check if the post request has the file part
-        if 'file' not in request.files:
-            flash('No file part')
-            return redirect(request.url)
-        file = request.files['file']
-        # if user does not select file, browser also
-        # submit a empty part without filename
-        if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
-        if file and allowed_file(file.filename):
-                
-                filename = secure_filename(file.filename)
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        
-                global BackGroudLogo 
-                BackGroudLogo = filename
-                
-                return render_template("MostrarImagemCarregada.html" , a = filename)
-                
-    
-    return render_template('carregarImagem.html')
-
+        if nomeDoArquivo != None:    
+                return render_template("MostrarImagemCarregada.html" , a = nomeDoArquivo)
+        return render_template('carregarImagem.html')
 
 @app.route('/carregarLogo', methods=['GET', 'POST'])
-def upload_fileLogo():
+def upload_fileLogo():  
+        nomeDoArquivo = None
+        nomeDoArquivo = carregarImagem()   
+        global LOGO 
+        LOGO = nomeDoArquivo
         
-    if request.method == 'POST':
-        # check if the post request has the file part
-        if 'file' not in request.files:
-            flash('No file part')
-            return redirect(request.url)
-        file = request.files['file']
-        # if user does not select file, browser also
-        # submit a empty part without filename
-        if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
-            
-        if file and allowed_file(file.filename):
-                
-                filename = secure_filename(file.filename)
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-                global LOGO 
-                LOGO = filename
-                
-                return render_template("MostrarImagemCarregadaLogo.html" , a = filename)
-                
-    return render_template('carregarLogo.html')
+        if nomeDoArquivo != None:        
+                return render_template("MostrarImagemCarregadaLogo.html" , a = nomeDoArquivo)
+        return render_template('carregarLogo.html')

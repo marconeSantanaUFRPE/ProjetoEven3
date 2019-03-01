@@ -10,17 +10,18 @@
 			
 			<div id="LOGOSEUEVENTO"><img src="\static\{{b}}"></div>
 			<div id="Background"><img src="..\static\{{a}}"></div>
+			{% for x in lista %}
+			<div id="controle{{lista.index(x)+1}}">
+			
+				<p> {{x}}</p>
+			</div>
+				
+		{% endfor %}
     
 		</div>
 
 
-		{% for x in lista %}
-				<div id="controle{{lista.index(x)+1}}">
-				
-					<p> {{x}}</p>
-				</div>
-					
-			{% endfor %}
+		
 			
 		
  </body>
