@@ -1,0 +1,187 @@
+ body {
+	margin: 0;
+	padding: 0;
+ }
+
+ p {font-family: arial;
+	font-size: 66px
+
+}
+
+#container {
+	         width: 100vw;
+	         height: 100vh;
+	         background: #6C7A89;
+	         display: flex;
+	         flex-direction: row;
+	         justify-content: center;
+	         align-items: center
+	     
+
+}
+ 
+ #background 
+{ 
+	 left: 0px; 
+	 top: 0px; 
+	 position: relative; 
+	 margin-left: auto; 
+	 margin-right: auto; 
+	 width: 1240px;
+	 height: 1748px; 
+	 overflow: hidden;
+	 z-index:0;
+	} 
+
+ #Background 
+{ 
+	 left: 0px; 
+	 top: 0px; 
+	 position: absolute; 
+	 width: 1240px;
+	 height: 1748px;
+	 z-index:1;
+} 
+
+ #Retangulotexto 
+{ 
+	 left: 101px; 
+	 top: 1091px; 
+	 position: absolute; 
+	 width: 1039px;
+	 height: 238px;
+	 z-index:2;
+} 
+
+ #NOMEDOINSCRITO 
+{ 
+	 left: 130px; 
+	 top: 1110px; 
+	 position: absolute; 
+	 width: 8778px;
+	 height: 666px;
+	 z-index:3;
+} 
+
+ #LOGOEVEN3 
+{ 
+	 left: 923px; 
+	 top: 1555px; 
+	 position: absolute; 
+	 width: 231px;
+	 height: 72px;
+	 z-index:4;
+} 
+
+ #LOGOPATROCINADOR2 
+{ 
+	 left: 551px; 
+	 top: 1566px; 
+	 position: absolute; 
+	 width: 296px;
+	 height: 54px;
+	 z-index:5;
+} 
+
+ #LOGOPATROCINADOR1 
+{ 
+	 left: 345px; 
+	 top: 1529px; 
+	 position: absolute; 
+	 width: 163px;
+	 height: 111px;
+	 z-index:6;
+} 
+
+ #LOGOENTIDADE 
+{ 
+	 left: 86px; 
+	 top: 1543px; 
+	 position: absolute; 
+	 width: 223px;
+	 height: 84px;
+	 z-index:7;
+} 
+
+ #LOGOSEUEVENTO 
+{ 
+	 left: 114px; 
+	 top: 141px; 
+	 position: absolute; 
+	 width: 757px;
+	 height: 331px;
+	 z-index:8;
+} 
+
+#controle0{ 
+	left:auto;
+	top: 1110px; 
+	position: absolute; 
+	width: 8778px;
+	height: 666px;
+	z-index:3;
+	
+} 
+
+
+#controle1{ 
+	left:auto;
+	top: 1110px; 
+	position: absolute; 
+	width: 8778px;
+	height: 666px;
+	z-index:3;
+	
+	
+} 
+
+#controle2{
+	left:auto;
+	top: 1160px; 
+	position: absolute; 
+	width: 8778px;
+	height: 666px;
+	z-index:3;
+	
+}
+
+#controle3{
+	left:auto;
+	top: 1210px; 
+	position: absolute; 
+	width: 8778px;
+	height: 666px;
+	z-index:3;
+	
+}
+
+#controle4{
+	left:auto;
+	top: 1260px; 
+	position: absolute; 
+	width: 8778px;
+	height: 666px;
+	z-index:3;
+
+}
+
+#controle5{
+	left:auto;
+	top: 1310px; 
+	position: absolute; 
+	width: 8778px;
+	height: 666px;
+	z-index:3;
+
+}
+
+#backback 
+{ 
+	 left: 0px; 
+	 top: 0px; 
+	 width: 1px;
+	 height: 1px; 
+	
+	} 
+
+	

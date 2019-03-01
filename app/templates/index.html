@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Crachás do Evento</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css\bootstrap.min.css')}}">
+    <script src="{{url_for('static', filename='js/popper.min.js')}}"></script>
+    <link href="..\static\css\styles.css" rel="stylesheet" type="text/css">
+
+    <!-- Botao Upload -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-filestyle.min.js"> </script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  </head>
+  <body>
+  {% block content %}
+    <div class="jumbotron">
+      <div>
+        <h3 class="text-muted">Even3</h3>
+      </div>
+      
+      <h1 class="display-4">Crachás do Evento</h1>
+     
+      <hr class="my-1">
+      <p>
+        <div>
+            <h3 class="text-muted">1 - Criar Modelo</h3>
+            <a href="https://blog.even3.com.br/crachas-para-eventos-academicos/" target="_blank" >Dica:Templates </a>
+
+            <div class="container">
+                  <div class="col-xs-4">
+                    <div class="form-group">
+                      <p> Backgroud</p>
+                      <div> <iframe src="/carregar"  
+                        name="content" width="320" marginwidth="0" height="460" marginheight="0" align="top" 
+                        scrolling="no" frameborder="0" hspace="0" vspace="0" allowtransparency="true" application="true"> </iframe>  </div>
+                      <p> Sua Logo</p>
+                      <div> <iframe src="/carregarLogo" 
+                          name="content" width="320" marginwidth="0" height="460" marginheight="0" align="top" 
+                          scrolling="no" frameborder="0" hspace="0" vspace="0" allowtransparency="true" application="true"> </iframe>  </div>
+                        
+        
+                      
+                      <form class="form form-horizoltal" ,action="", method="POST" ,horizontal_columns=('lg', 20, 10), role="form" >
+                        {{formularioTags.csrf_token}}
+                        <div class = "formulario">
+          
+                            <div class="form-group">
+                              <h4> #Inserir Tags </h4>
+                              <p>Insira as tags  que vão aparecer no crachá separada por virgula</p>
+                              <p>As Informações serão impressas no crachá na ordem das tags</p>
+                              {{formularioTags.tag(placeholder = "Digite as Tags")}}
+                              <p>{{exemplo}}</p>
+                              
+                              </div>
+
+                              <h3 class="text-muted">2 - Importar participantes</h3>
+                              <p>Copie o conteúdo da planilha excel, incluindo os cabeçalhos e cole aqui</p>
+
+                              {{form.texto(placeholder = "Conteudo da Planilha")}}
+                              <div>
+                                <h3 class="text-muted">3 - Baixar</h3>
+                              <button name="button">Baixar Crachás</button>
+                            </div>
+                      </form>
+                      
+                  </div>
+                  </div>
+              </div>
+
+
+            
+    
+  </body>
+{% endblock %}
