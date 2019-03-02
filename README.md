@@ -19,7 +19,7 @@ Projeto para Seleção de Estágio da Even3
      \venv\Scripts>activate
 3 - Instalar bibliotecas 
 
-    com a venv ativada executar o comando na pasta raiz do Projeto \ProjetoEven3
+    com a venv ativada executar o comando na pasta raiz do Projeto '\ProjetoEven3'
      
       > pip3 install -r requirements.txt
       aguarde a instalação das bibliotecas 
