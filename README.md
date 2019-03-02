@@ -32,3 +32,9 @@ Projeto para Seleção de Estágio da Even3
  5 - acessar aplicação.
  
     no navegador acesse http://localhost:5000/
+
+# Requisitos não atendidos
+
+Requisito - 3
+
+    Deverá permitir as opções de negrito, itálico e ajustar o tamanho do texto.
