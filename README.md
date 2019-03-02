@@ -3,11 +3,11 @@ Projeto para Seleção de Estágio da Even3
 
 
 
-1 - Instalação do Python
+1 - Instalação do Python 3
 
     instalador disponível em:
     https://www.python.org/ftp/python/3.7.2/python-3.7.2.exe
-    Configure o python nas variáveis de ambiente - https://python.org.br/instalacao-windows/
+    Configure o python nas variáveis de ambiente (PATH) - https://python.org.br/instalacao-windows/
 
 2 - Instalação/Inicialização virtualenv
 
@@ -23,13 +23,20 @@ Projeto para Seleção de Estágio da Even3
      
       > pip3 install -r requirements.txt
       aguarde a instalação das bibliotecas 
+4 - Instalando o pdfkit
 
-4 - Iniciar Aplicação
+    a instalação da biblioteca pdfkit precisa do wkhtmltopdf disponível em : https://wkhtmltopdf.org/downloads.html
+
+    instale e configure o wkhtmltopdf nas variaveis de ambiente (PATH) - adicione ao PATH (C:\Program Files\wkhtmltopd\bin)->local onde o wkhtmltopdf é instalado
+        
+    
+
+5 - Iniciar Aplicação
 
     com a venv ativada e na pasta raiz do projeto execute o arquivo run.py com o comando:
     > python run.py
     
- 5 - acessar aplicação.
+6 - acessar aplicação.
  
     no navegador acesse http://localhost:5000/
 
