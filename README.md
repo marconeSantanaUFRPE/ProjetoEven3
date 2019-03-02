@@ -9,7 +9,7 @@ Projeto para Seleção de Estágio da Even3
     https://www.python.org/ftp/python/3.7.2/python-3.7.2.exe
     Configure o python nas variáveis de ambiente - https://python.org.br/instalacao-windows/
 
-2 - Instalação/Inicialização virtualen
+2 - Instalação/Inicialização virtualenv
 
      Instalação
      Com o python configurado nas variáveis de ambiente execute o comando:
